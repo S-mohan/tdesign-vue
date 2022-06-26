@@ -146,7 +146,6 @@ export default defineComponent({
       <TInput
         ref="tagInputRef"
         readonly={this.readonly}
-        {...this.inputProps}
         inputClass={this.inputProps?.inputClass} // 展开无效 需直接透传
         value={this.tInputValue}
         onChange={(val: InputValue, context?: { e?: InputEvent | MouseEvent }) => {
@@ -165,6 +164,7 @@ export default defineComponent({
         suffixIcon={() => suffixIconNode}
         {...{
           props: {
+            ...this.inputProps,
             onEnter: this.onInputEnter,
             onKeyup: this.onInputBackspaceKeyUp,
             onMouseenter: (context: { e: MouseEvent }) => {
